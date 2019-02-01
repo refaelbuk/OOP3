@@ -3,21 +3,17 @@
 
 #include "canvas.h"
 #include "Circle.h"
-#include "Line.h"
+
+#include "canvas.h"
 #include "Point.h"
-#include "Rectangle.h"
 #include "Shape.h"
-#include <iostream>
-using namespace std;
 
 
-class Line :class Shape{
+class Line :public Shape{
 protected:
-	Point m_org; // line origin
 	Point m_end; // line end
-	color m_color;
 public:
-	Line(const Point& p1, const Point& p2, color c) : m_org(p1), m_end(p2), m_color(c) {}
+	Line(const Point& p1, const Point& p2, color c) : Shape(p1, c), m_end(p2) {};
 	void move(const Point& p)
 	{
 		m_org += p;
@@ -26,6 +22,7 @@ public:
 	void draw() const;
 	double length() const;
 	void scale(int) const;
+	void draw_to_file(ofstream&) const;
 };
 
 #endif

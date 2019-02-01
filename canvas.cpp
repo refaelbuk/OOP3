@@ -22,12 +22,3 @@ ostream& operator<<(ostream& os, color c)
 	}
 	return os;
 }
-
-ostream& operator<<(ostream& os, const Point& p)
-{
-	os << '(' << p.x() << ',' << p.y() << ')';
-	return os;
-}
-
-
-
